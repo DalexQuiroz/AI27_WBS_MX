@@ -83,6 +83,7 @@ function enviarDataAI27() {
   const opciones = {
     method: 'POST',
     headers: headers,
+    cors : 'no-cors',
     body: JSON.stringify(datos) // Utiliza los datos recopilados
   };
 
