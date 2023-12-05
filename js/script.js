@@ -1,18 +1,4 @@
 let datos = {}; // Declarar datos fuera de las funciones
-/*const datos2 = {
-  customerId: 333,
-  transportLineId: 15522,
-  ecoNumber: "ECO4528",
-  plates: "ABC-123",
-  generatedEvent: "1",
-  generatedEventDate: "2023-11-01 12:24:15",
-  latitude: 99.02312542,
-  longitude: 0.9956325,
-  speed: 85,
-  heading: 259.36225,
-  odometer: 652300,
-  battery: 12.5
-};*/
 
 // Llamada a traer cuando se presiona el primer botón
 document.getElementById('traer').addEventListener('click', traer);
@@ -73,22 +59,29 @@ function traer() {
 // Llamada a enviarDataAI27 cuando se presiona el segundo botón
 document.getElementById('Enviar').addEventListener('click', enviarDataAI27);
 function enviarDataAI27() {
-  const token='eyJraWQiOiJUdjhreEsycTZJMWhra0ZWUk90eTFvNXZJdmZndEt1TU9UdU01MWh3YWdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoid3NhdXRoaWRlbnRpZmllclwvd3Muc2NvcGUiLCJhdXRoX3RpbWUiOjE3MDE4MDQ0NDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX210RUhESk9uaSIsImV4cCI6MTcwMTgwODA0NywiaWF0IjoxNzAxODA0NDQ3LCJ2ZXJzaW9uIjoyLCJqdGkiOiJkODgxNDU5OC0xY2UwLTQ3YTItYjE0OS1mZjVjY2QyMmI4M2QiLCJjbGllbnRfaWQiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSJ9.nAnwbXHEKe76s7upSWTQrkH_7OinPUBZNfBjQKAe9WXx4tL9Hxhpvswfe7iHEgvRH7qgXiarqpOis7mjgnePPWRG19uit3RCiifqMMtm7hYJld2iL5tfyHZHXnSi1vd-uT_Y9209N1McNSK2aS_KiyWlVjr5TKyFQxDyQD-_pLHU8OMN2-Gv0xKVaxJt4uT7fD6aBQeRzuYXWR1m3CVPX_bhvWyJW_SkPffeDeu5PiQBTiHYF1PMZsltqRGl1n194gTY8kDoO1lJl-7pXQqiISVOIJm_x2AwxmmapAD0FTwCLVT25tbEZI4aowTTt2BKMlsQDGSCJI6wTI2zeTuZ5A';
-  const urlAI27 = 'https://api.ai27appsservices.com/AI27WebApi';// Reemplaza con la URL correcta
+  const token = 'eyJraWQiOiJUdjhreEsycTZJMWhra0ZWUk90eTFvNXZJdmZndEt1TU9UdU01MWh3YWdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoid3NhdXRoaWRlbnRpZmllclwvd3Muc2NvcGUiLCJhdXRoX3RpbWUiOjE3MDE4MTk3MzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX210RUhESk9uaSIsImV4cCI6MTcwMTgyMzMzOSwiaWF0IjoxNzAxODE5NzM5LCJ2ZXJzaW9uIjoyLCJqdGkiOiJlZDFhMjZiMi0wYjU0LTRhY2MtYTdkZS01YWM1OGZiZDQzMGIiLCJjbGllbnRfaWQiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSJ9.XIDOWW5MR1pSQIk1Gp7pZlEGi93Xy7ga7Z5uLxLrOuwiHWnxvPks7C2RwO8a-1FGYIA7SFcT-IFNZIwr_Ln8lA4IV0KjXYpVdNHnJiIT1ney9JTPBxQHEeJoZ6GQ_fEvEXU2UxDqxVdXSBgTy9UR0s6hq0IKLNLc-wA4yfR5dPXvvDC8ySjWu-3mo9jsv7MywDSu3P2nJciiqpEp5ff2a7ymEmFdFbDWRkvCnJba5UREPlMCxg2KqGzoO3Tqz4cNKysQsQ4Rf4nPaQdKqIsiyBM6s7peVMK77IRu2rP-wYsmgJjAhlSAXDBI9JqM_mReiKH1wff3uzKeoDrZ0ijosg';
+  const urlAI27 = 'https://cors-anywhere.herokuapp.com/https://api.ai27appsservices.com/AI27WebApi'; // Reemplaza con la URL correcta
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`
-    };
+    'Authorization': `Bearer ${token}`,
+    'Origin': 'fullmexico.ddns.net' // Reemplaza con la URL real de tu formulario HTML
+  };
 
+  // Suponiendo que tienes algún objeto datos definido antes de la llamada
   const opciones = {
     method: 'POST',
-    mode: 'no-cors',
     headers: headers,
+    mode: 'cors',
     body: JSON.stringify(datos) // Utiliza los datos recopilados
   };
 
   fetch(urlAI27, opciones)
-    .then(respuesta => respuesta.json())
+    .then(respuesta => {
+      if (!respuesta.ok) {
+        throw new Error(`HTTP error! status: ${respuesta.status}`);
+      }
+      return respuesta.json();
+    })
     .then(respuesta => {
       console.log('Respuesta del servidor AI27:', respuesta);
     })
