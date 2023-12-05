@@ -77,7 +77,7 @@ function enviarDataAI27() {
   const urlAI27 = 'https://api.ai27appsservices.com/AI27WebApi';// Reemplaza con la URL correcta
   const headers = {
     'Content-Type': 'application/json',
-    'Authorization': 'Bearer ${token}'
+    'Authorization': `Bearer ${token}`
     };
 
   const opciones = {
