@@ -72,8 +72,8 @@ function traer() {
 }
 // Llamada a enviarDataAI27 cuando se presiona el segundo botón
 document.getElementById('Enviar').addEventListener('click', enviarDataAI27);
-const token='eyJraWQiOiJUdjhreEsycTZJMWhra0ZWUk90eTFvNXZJdmZndEt1TU9UdU01MWh3YWdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoid3NhdXRoaWRlbnRpZmllclwvd3Muc2NvcGUiLCJhdXRoX3RpbWUiOjE3MDE4MDQ0NDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX210RUhESk9uaSIsImV4cCI6MTcwMTgwODA0NywiaWF0IjoxNzAxODA0NDQ3LCJ2ZXJzaW9uIjoyLCJqdGkiOiJkODgxNDU5OC0xY2UwLTQ3YTItYjE0OS1mZjVjY2QyMmI4M2QiLCJjbGllbnRfaWQiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSJ9.nAnwbXHEKe76s7upSWTQrkH_7OinPUBZNfBjQKAe9WXx4tL9Hxhpvswfe7iHEgvRH7qgXiarqpOis7mjgnePPWRG19uit3RCiifqMMtm7hYJld2iL5tfyHZHXnSi1vd-uT_Y9209N1McNSK2aS_KiyWlVjr5TKyFQxDyQD-_pLHU8OMN2-Gv0xKVaxJt4uT7fD6aBQeRzuYXWR1m3CVPX_bhvWyJW_SkPffeDeu5PiQBTiHYF1PMZsltqRGl1n194gTY8kDoO1lJl-7pXQqiISVOIJm_x2AwxmmapAD0FTwCLVT25tbEZI4aowTTt2BKMlsQDGSCJI6wTI2zeTuZ5A'
 function enviarDataAI27() {
+  const token='eyJraWQiOiJUdjhreEsycTZJMWhra0ZWUk90eTFvNXZJdmZndEt1TU9UdU01MWh3YWdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoid3NhdXRoaWRlbnRpZmllclwvd3Muc2NvcGUiLCJhdXRoX3RpbWUiOjE3MDE4MDQ0NDcsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX210RUhESk9uaSIsImV4cCI6MTcwMTgwODA0NywiaWF0IjoxNzAxODA0NDQ3LCJ2ZXJzaW9uIjoyLCJqdGkiOiJkODgxNDU5OC0xY2UwLTQ3YTItYjE0OS1mZjVjY2QyMmI4M2QiLCJjbGllbnRfaWQiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSJ9.nAnwbXHEKe76s7upSWTQrkH_7OinPUBZNfBjQKAe9WXx4tL9Hxhpvswfe7iHEgvRH7qgXiarqpOis7mjgnePPWRG19uit3RCiifqMMtm7hYJld2iL5tfyHZHXnSi1vd-uT_Y9209N1McNSK2aS_KiyWlVjr5TKyFQxDyQD-_pLHU8OMN2-Gv0xKVaxJt4uT7fD6aBQeRzuYXWR1m3CVPX_bhvWyJW_SkPffeDeu5PiQBTiHYF1PMZsltqRGl1n194gTY8kDoO1lJl-7pXQqiISVOIJm_x2AwxmmapAD0FTwCLVT25tbEZI4aowTTt2BKMlsQDGSCJI6wTI2zeTuZ5A';
   const urlAI27 = 'https://api.ai27appsservices.com/AI27WebApi';// Reemplaza con la URL correcta
   const headers = {
     'Content-Type': 'application/json',
@@ -82,8 +82,8 @@ function enviarDataAI27() {
 
   const opciones = {
     method: 'POST',
+    mode: 'no-cors',
     headers: headers,
-    cors : 'no-cors',
     body: JSON.stringify(datos) // Utiliza los datos recopilados
   };
 
@@ -93,9 +93,14 @@ function enviarDataAI27() {
       console.log('Respuesta del servidor AI27:', respuesta);
     })
     .catch(error => {
-      console.error('Error al enviar la solicitud a AI27:', error);
+      console.log('Error al enviar la solicitud a AI27:', error);
     });
 }
+
+
+
+
+
 
 
 
