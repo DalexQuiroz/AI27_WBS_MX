@@ -64,7 +64,8 @@ function enviarDataAI27() {
   const headers = {
     'Content-Type': 'application/json',
     'Authorization': `Bearer ${token}`,
-    'Origin': 'fullmexico.ddns.net' // Reemplaza con la URL real de tu formulario HTML
+    'X-Requested-With': 'XMLHttpRequest',
+    'Origin': `https://main--eloquent-conkies-c146b8.netlify.app/` // Reemplaza con la URL real de tu formulario HTML
   };
 
   // Suponiendo que tienes algún objeto datos definido antes de la llamada
@@ -89,6 +90,7 @@ function enviarDataAI27() {
       console.log('Error al enviar la solicitud a AI27:', error);
     });
 }
+
 
 
 
