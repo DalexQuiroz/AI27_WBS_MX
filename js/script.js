@@ -1,4 +1,18 @@
 let datos = {}; // Declarar datos fuera de las funciones
+let datos2 = {
+  customerId: 333,
+  transportLineId: 15522,
+  ecoNumber: "ECO4528",
+  plates: "ABC-123",
+  generatedEvent: "1",
+  generatedEventDate: "2023-11-01 12:24:15",
+  latitude: 99.02312542,
+  longitude: 0.9956325,
+  speed: 85,
+  heading: 259.36225,
+  odometer: 652300,
+  battery: 12.5
+};
 
 // Llamada a traer cuando se presiona el primer botón
 document.getElementById('traer').addEventListener('click', traer);
@@ -73,7 +87,7 @@ function enviarDataAI27() {
     method: 'POST',
     headers: headers,
     mode: 'cors',
-    body: JSON.stringify(datos) // Utiliza los datos recopilados
+    body: JSON.stringify(datos2) // Utiliza los datos recopilados
   };
 
   fetch(urlAI27, opciones)
