@@ -14,6 +14,14 @@ function traer() {
       console.log(res);
       if (res.data.length > 0) {
         const element = res.data[0];
+        document.getElementById('ecoNumber').value = element.ras_vei_veiculo;
+        document.getElementById('plates').value = element.ras_vei_placa;
+        document.getElementById('generatedEventDate').value = element.ras_eve_data_enviado;
+        document.getElementById('latitude').value = element.ras_eve_latitude;
+        document.getElementById('longitude').value = element.ras_eve_longitude;
+        document.getElementById('speed').value = element.ras_eve_velocidade;
+        document.getElementById('odometer').value = element.ras_eve_hodometro;
+        document.getElementById('battery').value = element.ras_eve_voltagem;
 
         // Datos del API
         apiData = {
@@ -110,6 +118,7 @@ function formatearFecha(fecha) {
 function agregarCero(valor) {
   return valor < 10 ? `0${valor}` : valor;
 }
+
 
 
 
