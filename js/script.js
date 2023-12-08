@@ -1,21 +1,9 @@
-let datos = {}; // Declarar datos fuera de las funciones
-let datos2 = {
-  customerId: 333,
-  transportLineId: 15522,
-  ecoNumber: "ECO4528",
-  plates: "ABC-123",
-  generatedEvent: "1",
-  generatedEventDate: "2023-11-01 12:24:15",
-  latitude: 99.02312542,
-  longitude: 0.9956325,
-  speed: 85,
-  heading: 259.36225,
-  odometer: 652300,
-  battery: 12.5
-};
+let userInput = {};
+let apiData = {};
 
-// Llamada a traer cuando se presiona el primer botón
 document.getElementById('traer').addEventListener('click', traer);
+document.getElementById('Enviar').addEventListener('click', enviarDatos);
+
 function traer() {
   let informacionInput = document.getElementById('ingresar_id').value;
   let valorNumerico = parseInt(informacionInput, 10);
@@ -24,85 +12,103 @@ function traer() {
     .then(res => res.json())
     .then(res => {
       console.log(res);
-      for (let i = 0; i < res.data.length; i++) {
-        const element = res.data[i];
-        document.getElementById('ecoNumber').value = element.ras_vei_veiculo;
-        document.getElementById('plates').value = element.ras_vei_placa;
-        document.getElementById('generatedEventDate').value = element.ras_eve_data_enviado;
-        document.getElementById('latitude').value = element.ras_eve_latitude;
-        document.getElementById('longitude').value = element.ras_eve_longitude;
-        document.getElementById('speed').value = element.ras_eve_velocidade;
-        document.getElementById('odometer').value = element.ras_eve_hodometro;
-        document.getElementById('battery').value = element.ras_eve_voltagem;
+      if (res.data.length > 0) {
+        const element = res.data[0];
+
+        // Datos del API
+        apiData = {
+          ecoNumber: String(element.ras_vei_veiculo),
+          plates: String(element.ras_vei_placa),
+          generatedEventDate: formatearFecha(element.ras_eve_data_enviado),
+          latitude: parseFloat(element.ras_eve_latitude),
+          longitude: parseFloat(element.ras_eve_longitude),
+          speed: parseFloat(element.ras_eve_velocidade),
+          heading: parseInt(element.ras_eve_velocidade, 10),
+          odometer: parseInt(element.ras_eve_hodometro, 10),
+          battery: parseFloat(element.ras_eve_voltagem)
+        };
+
+        // Datos del usuario
+        userInput = {
+          customerId: parseInt(document.getElementById('customerId').value, 10),
+          transportLineId: parseInt(document.getElementById('transportLineId').value, 10),
+          generatedEvent: (document.getElementById('generatedEvent').value)
+        };
+
+        console.log(apiData);
+        console.log(userInput);
+
+        // Aquí puedes hacer lo que quieras con los objetos apiData y userInput
       }
-
-      // Almacena los datos en la variable
-      const customerId = document.getElementById('customerId').value;
-      const transportLineId = document.getElementById('transportLineId').value;
-      const ecoNumber = document.getElementById('ecoNumber').value;
-      const plates = document.getElementById('plates').value;
-      const generatedEvent = document.getElementById('generatedEvent').value;
-      const generatedEventDate = document.getElementById('generatedEventDate').value;
-      const latitude = document.getElementById('latitude').value;
-      const longitude = document.getElementById('longitude').value;
-      const speed = document.getElementById('speed').value;
-      const odometer = document.getElementById('odometer').value;
-      const battery = document.getElementById('battery').value;
-
-      // Datos por el usuario
-  
-
-      // Actualiza la variable datos con la información recopilada
-      datos = {
-        customerId: customerId,
-        transportLineId: transportLineId,
-        ecoNumber: ecoNumber,
-        plates: plates,
-        generatedEvent: generatedEvent,
-        generatedEventDate: generatedEventDate,
-        latitude: latitude,
-        longitude: longitude,
-        speed: speed,
-        odometer: odometer,
-        battery: battery
-      };
-
-      console.log(datos);
-    })
-}
-// Llamada a enviarDataAI27 cuando se presiona el segundo botón
-document.getElementById('Enviar').addEventListener('click', enviarDataAI27);
-function enviarDataAI27() {
-  const token = 'eyJraWQiOiJUdjhreEsycTZJMWhra0ZWUk90eTFvNXZJdmZndEt1TU9UdU01MWh3YWdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoid3NhdXRoaWRlbnRpZmllclwvd3Muc2NvcGUiLCJhdXRoX3RpbWUiOjE3MDE4MTk3MzksImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX210RUhESk9uaSIsImV4cCI6MTcwMTgyMzMzOSwiaWF0IjoxNzAxODE5NzM5LCJ2ZXJzaW9uIjoyLCJqdGkiOiJlZDFhMjZiMi0wYjU0LTRhY2MtYTdkZS01YWM1OGZiZDQzMGIiLCJjbGllbnRfaWQiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSJ9.XIDOWW5MR1pSQIk1Gp7pZlEGi93Xy7ga7Z5uLxLrOuwiHWnxvPks7C2RwO8a-1FGYIA7SFcT-IFNZIwr_Ln8lA4IV0KjXYpVdNHnJiIT1ney9JTPBxQHEeJoZ6GQ_fEvEXU2UxDqxVdXSBgTy9UR0s6hq0IKLNLc-wA4yfR5dPXvvDC8ySjWu-3mo9jsv7MywDSu3P2nJciiqpEp5ff2a7ymEmFdFbDWRkvCnJba5UREPlMCxg2KqGzoO3Tqz4cNKysQsQ4Rf4nPaQdKqIsiyBM6s7peVMK77IRu2rP-wYsmgJjAhlSAXDBI9JqM_mReiKH1wff3uzKeoDrZ0ijosg';
-  const urlAI27 = 'https://cors-anywhere.herokuapp.com/https://api.ai27appsservices.com/AI27WebApi'; // Reemplaza con la URL correcta
-  const headers = {
-    'Content-Type': 'application/json',
-    'Authorization': `Bearer ${token}`,
-    'X-Requested-With': 'XMLHttpRequest',
-    'Origin': `https://main--eloquent-conkies-c146b8.netlify.app/` // Reemplaza con la URL real de tu formulario HTML
-  };
-
-  // Suponiendo que tienes algún objeto datos definido antes de la llamada
-  const opciones = {
-    method: 'POST',
-    headers: headers,
-    mode: 'cors',
-    body: JSON.stringify(datos2) // Utiliza los datos recopilados
-  };
-
-  fetch(urlAI27, opciones)
-    .then(respuesta => {
-      if (!respuesta.ok) {
-        throw new Error(`HTTP error! status: ${respuesta.status}`);
-      }
-      return respuesta.json();
-    })
-    .then(respuesta => {
-      console.log('Respuesta del servidor AI27:', respuesta);
-    })
-    .catch(error => {
-      console.log('Error al enviar la solicitud a AI27:', error);
     });
+}
+
+function enviarDatos() {
+  // Obtener el objeto final
+  const finalObject = construirObjeto();
+
+  // Crear una solicitud POST con el objeto como cuerpo
+  fetch('https://cors-anywhere.herokuapp.com/https://api.ai27appsservices.com/AI27WebApi', {
+    method: 'POST',
+    mode: 'cors',
+    headers: {
+      'Content-Type': 'application/json',
+      'Authorization': 'Bearer eyJraWQiOiJUdjhreEsycTZJMWhra0ZWUk90eTFvNXZJdmZndEt1TU9UdU01MWh3YWdRPSIsImFsZyI6IlJTMjU2In0.eyJzdWIiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSIsInRva2VuX3VzZSI6ImFjY2VzcyIsInNjb3BlIjoid3NhdXRoaWRlbnRpZmllclwvd3Muc2NvcGUiLCJhdXRoX3RpbWUiOjE3MDE5OTQxMDIsImlzcyI6Imh0dHBzOlwvXC9jb2duaXRvLWlkcC51cy1lYXN0LTEuYW1hem9uYXdzLmNvbVwvdXMtZWFzdC0xX210RUhESk9uaSIsImV4cCI6MTcwMTk5NzcwMiwiaWF0IjoxNzAxOTk0MTAyLCJ2ZXJzaW9uIjoyLCJqdGkiOiIwMzQ2YWE0My1hMmEwLTQwMjQtYTFmZi1jZWQ2MTNlMDc3YTkiLCJjbGllbnRfaWQiOiI0Y3ZrdG50Njdrbm41NTh2aWpjbW1zdXQ2dSJ9.Me8EE57_LVTK4JRMBeVN5P0udu7rD8-kSjyFLxyCekRzlBOHsxCH7PGDL9N-_zZAHTEHLkLeX0ltApIIeiflyS91IGkiYlG_H323bhtGkCC-MrwQfhJcZ7YOd-WhM_w8ahmbLh84zcd6tO2-9TF_qB5SBMByUyezJ7L8JxkR-Gz4yNnOUlmbuXEDlkFzH9I_W47kqOpkilHLiaFtVv531ijZQbZKEYEmBHVIgYIIj2K7zPEzzfDO4n1ZnC_6N-cBf-7hEX0Ry-iLAk0VwYTLAqzRCz8aTsRfe8KS6xt-wOeqrg29YC61Bf5NrnmahJUZC26rGNRygnWeTYEF4LqCyQ',
+      'X-Requested-With': 'XMLHttpRequest',
+      'Origin': `https://main--eloquent-conkies-c146b8.netlify.app/`
+    },
+    body: JSON.stringify(finalObject)
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log('Respuesta del servidor:', data);
+    // Puedes realizar acciones adicionales con la respuesta del servidor si es necesario
+  })
+  .catch(error => console.error('Error al enviar los datos:', error));
+}
+
+function construirObjeto() {
+  // Orden deseado de las propiedades
+  const order = [
+    "customerId",
+    "transportLineId",
+    "ecoNumber",
+    "plates",
+    "generatedEvent",
+    "generatedEventDate",
+    "latitude",
+    "longitude",
+    "speed",
+    "heading",
+    "odometer",
+    "battery"
+  ];
+
+  // Construir el objeto en base al orden deseado
+  const finalObject = {};
+  order.forEach(key => {
+    finalObject[key] = userInput[key] !== undefined ? userInput[key] : apiData[key];
+  });
+
+  return finalObject;
+}
+
+function formatearFecha(fecha) {
+  const fechaFormateada = new Date(fecha);
+  const año = fechaFormateada.getFullYear();
+  const mes = agregarCero(fechaFormateada.getMonth() + 1);
+  const dia = agregarCero(fechaFormateada.getDate());
+  const horas = agregarCero(fechaFormateada.getHours());
+  const minutos = agregarCero(fechaFormateada.getMinutes());
+  const segundos = agregarCero(fechaFormateada.getSeconds());
+
+  // Cambio en el formato de la fecha
+  return `${año}-${mes}-${dia} ${horas}:${minutos}:${segundos}`;
+}
+
+
+function agregarCero(valor) {
+  return valor < 10 ? `0${valor}` : valor;
 }
 
 
