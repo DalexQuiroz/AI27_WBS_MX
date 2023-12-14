@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&family=Krub:wght@400;700&family=Lato:wght@700&family=Open+Sans&family=PT+Sans:ital,wght@0,400;1,700&family=Staatliches&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+:root{
+    --blanco: #FFF;
+    --negro:#000;
+    --fuentePrincipal:'Poppins', sans-serif;
+    --fuenteHeader: 'Playfair Display', serif;
+    --azul: #122B4D;
+}
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+
+*,*::before,::after{
+    box-sizing: inherit;
+}
+/* Encabezado */
+.header{
+    max-width: 100%;
+    background-color: var(--azul);
+    width: 100%;
+    height: 9rem;
+    padding: 0;
+}
+
+.contenedor{
+    max-width: 1200rem;
+    margin: 0 auto;
+    width: 90%;
+    margin-top: 0;
+}
+
+@media (min-width: 768px) {
+    .barra{
+        display: flex;
+        gap: 6rem;
+        align-items: center;
+    }
+}
+.barra{
+    display: flex;
+    gap: 3rem;
+    
+}
+.barra__imagen{
+    max-width: 100%;
+    height: 8rem;
+    width: 10rem;
+}
+.barra__texto{
+    font-family: var(--fuentePrincipal);
+    color: var(--blanco);
+    font-size: 3.5rem;
+}
+
+.barra__texto__color{
+    color: blueviolet;
+}
+
+/* Formulario */
+.title{
+    color: var(--negro);
+    font-family: var(--fuentePrincipal);
+    font-size: 4em;
+    text-align: center;
+    text-decoration: underline;
+}
+.sombra{
+    box-shadow: 0px 5px 15px 0px rgba(112,112,112,0.48);
+    background-color: var(--blanco);
+    padding: 2rem;
+    border-radius: 1rem;
+  }
+.formulario{
+display: grid;
+grid-template-columns: repeat(4,1fr);
+gap: 2rem;
+}
+@media (max-width: 900px) {
+    .formulario{
+        display: grid;
+        grid-template-columns:repeat(4,1fr);
+        gap: 2rem;
+    }
+    .enviar{
+        grid-column: 1/3;
+        display: flex;
+        justify-content: center;
+    }
+
+}
+
+.campo{
+display:flex;
+flex-direction: column;
+gap: 1rem;
+}
+.campo__label{
+font-family: var(--fuentePrincipal);
+text-align: center;
+font-size: 1.5rem;
+}
+.campo__input{
+outline: none;
+height: 3rem;
+border-radius: 1rem;
+border: 1px solid  var(--azul);
+}
+.campo__input:hover{
+    box-shadow: 0px 0px 10px 0px black;
+}
+::placeholder{
+    text-align: center;
+}
+select{
+    height: 3rem;
+    border-radius: 1rem;
+    outline: none;
+    border: 1px solid green;
+}
+
+.mayus{
+    text-transform: uppercase;
+}
+.enviar{
+    grid-column: 1;
+    display: flex;
+    justify-content: center;
+}
+.getPDF{
+    grid-column: 2;
+}
+.pdf{
+    width: 25rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: red;
+    border: none;
+    color: var(--blanco);
+    font-size: 2rem;
+    border-radius: 2rem;
+    transition: all 500ms ease ;
+    text-align: center;
+    text-decoration: none;
+}
+.pdf:hover{
+    cursor: pointer;
+    opacity: 0.7;
+}
+.enviar__input{
+    width: 25rem;
+    margin-top: 2rem;
+    padding: 2rem;
+    background-color: var(--azul);
+    border: none;
+    color: var(--blanco);
+    font-size: 2rem;
+    border-radius: 2rem;
+    transition: all 500ms ease ;
+    text-align: center;
+    text-decoration: none;
+    font-family: var(--fuentePrincipal);
+}
+
+.enviar__input:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.63);
+}
+.header__form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+.header__form__boton{
+height: 3rem;
+width: 10rem;
+text-align: center;
+background-color: var(--azul);
+border-radius: 1rem;
+border: none;
+color:var(--blanco);
+font-size: 1.7rem;
+transition: 500ms ease background-color;
+margin-left: 1rem;
+}
+.header__form__boton:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.63);
+}
+.limpiar{
+    background-color: #000;
+    transition: all 500ms ease;
+}
+.limpiar:hover{
+background-color: #000000d2;
+}
+@media (min-width:200px ) and (max-width:550px) {
+    .formulario{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+    }
+    .header{
+        visibility: hidden;
+    }
+    .header__form{
+        display: flex;
+        flex-direction: column;
+    }
+    .enviar{
+        grid-column: 1;
+    }
+    .enviar__input{
+        width: 20rem;
+    }
+    .header__form__boton{
+        width: 10rem;
+    }
+    .header__consultar{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+        margin-bottom: 1rem
+    }
+}
+@media (min-width:551px ) and (max-width:890px) {
+    .formulario{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+    }
+    .header__form{
+        display: flex;
+        flex-direction: column;
+    }
+    .enviar{
+        grid-column: 1;
+    }
+    .enviar__input{
+        width: 30rem;
+    }
+    .header__form__boton{
+        width: 10rem;
+    }
+    .header__consultar{
+        margin-bottom: 1rem
+    }
+}
+
+@media (min-width:891px ) and (max-width:1200px) {
+    .formulario{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+    }
+    .header__form{
+        display: flex;
+        flex-direction: column;
+    }
+    .enviar{
+        grid-column: 1;
+    }
+    .enviar__input{
+        width: 20rem;
+    }
+    .header__form__boton{
+        width: 20rem;
+    }
+}
+
+
+.campo__boton{
+    display: flex;
+    justify-content:flex-end;
+    align-items: center;
+}
+.mostrar__campos{
+height: 5rem;
+width: 20rem;
+text-align: center;
+background-color: var(--azul);
+border-radius: 1rem;
+border: none;
+color:var(--blanco);
+font-size: 1.7rem;
+transition: 500ms ease background-color;
+margin-left: 1rem;
+font-family: var(--fuentePrincipal);
+}
+.mostrar__campos:hover{
+    cursor: pointer;
+    background-color: rgba(0, 0, 255, 0.63);
+}
+
+.campoAdicional{
+    display:flex;
+flex-direction: column;
+gap: 1rem;
+}
+
+.botones-ocultos{
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: center;
+}
+
+.token{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 2rem;
+    border-bottom:3px solid #010101a4 ;
+}
+.boton-token{
+    padding: 1rem;
+    width: 15rem;
+    background-color: var(--azul);
+    border: none;
+    border-radius: 1rem;
+    color: var(--blanco);
+    font-family: var(--fuentePrincipal);
+}
+.token-campos{
+    margin-bottom: 4rem;
+}
+
+#toast-container {
+    font-size: 1.6rem; /* Puedes ajustar el tamaño según tus preferencias */
+    font-weight: 700;
+  }
