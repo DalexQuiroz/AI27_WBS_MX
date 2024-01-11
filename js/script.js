@@ -186,7 +186,7 @@ document.getElementById('traer').addEventListener('click', traer);
 // document.getElementById('Enviar').addEventListener('click', enviarDatos);
 
 function traer() {
-  setInterval(traer, 235000);
+  setInterval(traer, 60000);
   let informacionInput = document.getElementById('ingresar_id').value;
   let valorNumerico = parseInt(informacionInput, 10);
   apiKey_ingresada = document.getElementById('apiKey').value;
@@ -266,7 +266,7 @@ function traer() {
 }
 
 function enviarDatos() {
-  setInterval(traer, 240000);
+  setInterval(enviarDatos, 120000);
   // Obtener el objeto final
   const finalObject = construirObjeto();
 
