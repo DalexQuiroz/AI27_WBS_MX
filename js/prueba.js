@@ -1,4 +1,4 @@
-var accessToken; // Variable para almacenar el token
+let accessToken; // Variable para almacenar el token
 
 function getTokenAndScheduleRenewal() {
     var client_id = document.getElementById("client_id").value;
