@@ -25,131 +25,138 @@
     </div>
 
     <main class="contenedor sombra">
-        <div class="header__form">
-            <h3 class="title">Genere un token </h3>
+   
+      <div class="header__form">
+        <h3 class="title">Genere un token </h3>
+    </div>
+    <form action="" class="token">
+      
+       <div class="campo token-campos">
+        <label for="client_id" class="campo__label">Client ID:</label>
+        <input type="password" class="campo__input" id="client_id" name="client_id" required placeholder="Client id">
+       </div>
+        <div class="campo token-campos">
+        <label for="client_secret" class="campo__label">Client Secret:</label>
+        <input  type="password" class="campo__input" id="client_secret" name="client_secret" required placeholder="Client Secret" >
         </div>
-        <form action="" class="token">
-            
-           <div class="campo token-campos">
-            <label for="client_id" class="campo__label">Client ID:</label>
-            <input type="text" class="campo__input" id="client_id" name="client_id" required>
-           </div>
-            <div class="campo token-campos">
-            <label for="client_secret" class="campo__label">Client Secret:</label>
-            <input type="text" class="campo__input" id="client_secret" name="client_secret" required >
-            </div>
-            
-           
-        </form>
-        <div class="header__form">
-            <h3 class="title">Registro de eventos de seguridad</h3>
-            
-        </div>
-        <form action="" class="formulario" id="form">
-            <div class="campo">
-                <label for="apiKey" class="campo__label">API KEY</label>
-                <input type="password" class="campo__input"  id="apiKey" placeholder="Ingrese su API KEY" required>
-            </div>
-            <div class="campo">
-                <label for="secretKey" class="campo__label">SECRET KEY</label>
-                <input type="password" class="campo__input"  id="secretKey" placeholder="Ingrese su SECRET KEY" required>
-            </div>
-            <div class="campo">
-                <label for="customerId" class="campo__label">Customer id</label>
-                <input type="number" class="campo__input"  id="customerId" required placeholder="Customer id">
-            </div>
-            
-            <div class="campo"> 
-                <label for="transportLineId" class="campo__label">Id línea de transporte</label>
-                <input type="text" class="campo__input"  id="transportLineId" placeholder="Línea de transporte" required>
-            </div>
-            <div class="campo">
-                <label for="generatedEvent" class="campo__label">Evento Generado</label>
-                <input type="number" class="campo__input"  id="generatedEvent" placeholder="Número del tipo de evento" required>
-            </div>
-           
-            <div class="campo campo__boton">
-                <button class="mostrar__campos" id="botonMostrarCampos">Guardar Cambios</button>
-            </div>
-            <div class="campo">
-                
-            </div>
-            <div class="campo">
-               
-            </div>
-            <!-- Campos adicionales a ocultar inicialmente -->
-            <h1 class="campoAdicional ">Complete los siguientes campos</h1>
-            <div class="campo">
-                
-            </div>
-            <div class="campo">
-                
-            </div>
-            <div class="campo">
-                
-            </div>
-            <div class="header__consultar campoAdicional">
-                <label type="number" for="ingresar_id" class="campo__label" id="informacionInput">Ingrese el id:</label>
-                <input type="number" id="ingresar_id" class="campo__input" placeholder="Id de la unidad">
-               
-            </div>
-            <div class="campo campoAdicional botones-ocultos">
-                <button type="button" id="traer" class="header__form__boton">Consultar</button>
-                <button class="header__form__boton limpiar" onclick="limpiarFormulario()">Limpiar</button>
-            </div>
-            
-            <div class="campo">
-                
-            </div>
-            <div class="campo">
-                
-            </div>
-            <div class="campo campoAdicional">
-                <label for="ecoNumber" class="campo__label">Económico Unidad</label>
-                <input type="text" class="campo__input"  id="ecoNumber" placeholder="Identificación de la unidad" required>
-            </div>
-            
-            <div class="campo campoAdicional">
-                <label for="plates" class="campo__label">Placas</label>
-                <input type="text" class="campo__input"  id="plates" placeholder="Placas de la unidad" required>
-            </div>
-            
-            <div class="campo campoAdicional">
-                <label for="generatedEventDate" class="campo__label">Fecha Evento</label>
-                <input type="text" class="campo__input"  id="generatedEventDate" placeholder="Fecha del evento" required>
-            </div>
-            <div class="campo campoAdicional">
-                <label for="latitude" class="campo__label">Latitud</label>
-                <input type="text" class="campo__input"  id="latitude" placeholder="Latitud" required>
-            </div>
-            <div class="campo campoAdicional">
-                <label for="longitude" class="campo__label">Longitud</label>
-                <input type="text" class="campo__input"  id="longitude" placeholder="Longitud" required>
-            </div>
-            <div class="campo campoAdicional">
-                <label for="speed" class="campo__label">Velocidad</label>
-                <input type="text" class="campo__input"  id="speed" placeholder="Velocidad de la unidad" required>
-            </div>
-            <div class="campo campoAdicional">
-                <label for="odometer" class="campo__label">Odómetro</label>
-                <input type="text" class="campo__input"  id="odometer" placeholder="Odometró de la unidad" required>
-            </div>
-            <div class="campo campoAdicional">
-                <label for="battery" class="campo__label">Batería</label>
-                <input type="text" class="campo__input"  id="battery" placeholder=" Batería del equipo" required>
-            </div>
+        
+       
+    </form>
+    <form action="" class="formulario" id="form">
+      <div class="campo">
+          <label for="apiKey" class="campo__label">API KEY</label>
+          <input type="password" class="campo__input"  id="apiKey" placeholder="Ingrese su API KEY" required>
+      </div>
+      <div class="campo">
+          <label for="secretKey" class="campo__label">SECRET KEY</label>
+          <input type="password" class="campo__input"  id="secretKey" placeholder="Ingrese su SECRET KEY" required>
+      </div>
+      <div class="campo">
+          <label for="customerId" class="campo__label">Customer id</label>
+          <input type="number" class="campo__input"  id="customerId" required placeholder="Customer id">
+      </div>
+      
+      <div class="campo"> 
+          <label for="transportLineId" class="campo__label">Id línea de transporte</label>
+          <input type="text" class="campo__input"  id="transportLineId" placeholder="Línea de transporte" required>
+      </div>
+      <div class="campo">
+          <label for="generatedEvent" class="campo__label">Evento Generado</label>
+          <input type="number" class="campo__input"  id="generatedEvent" placeholder="Número del tipo de evento" required>
+      </div>
+     
+      <div class="campo campo__boton">
+          <button class="mostrar__campos" id="botonMostrarCampos">Guardar Cambios</button>
+      </div>
+      <div class="campo">
+          
+      </div>
+      <div class="campo">
          
+      </div>
+  </form>
+  
+       <div id="llenaUnidades" class="llenaUnidades">
+        <div class="titulo">
+          <h1 class="tituloC principal">Configuración de las unidades</h1>
+      </div>
+      <div class="seleccionarClientes">
+          <label for="selectClientes" class="seleccionarClientes__label">Seleccione un Cliente:</label>
+          <select name="clientes" id="selectClientes">
+              <option value="seleccionar" selected disabled>-Seleccionar-</option>
+          </select>
+      </div>
+      <div class="container">
+          <div class="left">
+            <h2 class="tituloC">Unidades del cliente</h2>
+            <ul id="leftList">
+              
+            
+            </ul>
+          </div>
+          
+          <div class="arrows-container">
+            <div class="arrow right">&#x21e8;</div>
+            <div class="arrow left">&#x21e6;</div>
+            
+            <button id="guardar" class="bookmarkBtn">
+              <span class="IconContainer">
+                <svg viewBox="0 0 384 512" height="0.9em" class="icon">
+                  <path
+                    d="M0 48V487.7C0 501.1 10.9 512 24.3 512c5 0 9.9-1.5 14-4.4L192 400 345.7 507.6c4.1 2.9 9 4.4 14 4.4c13.4 0 24.3-10.9 24.3-24.3V48c0-26.5-21.5-48-48-48H48C21.5 0 0 21.5 0 48z"
+                  ></path>
+                </svg>
+              </span>
+              <p class="text">Guardar</p>
+            </button>
+          </div>
+      
+          <div class="right">
+            <h2 class="tituloC">Unidades vinculadas</h2>
+            <ul id="rightList">
+              
+            </ul>
+          </div>
+        </div>
 
+        
+        <!-- <button id="guardar">guardar</button> -->
+        <!-- <button id="enviar">enviar</button> -->
+        <!-- <button id="getPDF">Obtener PDF</button> -->
 
-            <div class="enviar campoAdicional">
-                <input type="submit"  class="enviar__input " id="Enviar"  value="Enviar datos" readonly>
+        <div class="buttons-options">
+          <button id="enviar" class="button2">
+            <div class="svg-wrapper-1">
+              <div class="svg-wrapper">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  width="24"
+                  height="24"
+                >
+                  <path fill="none" d="M0 0h24v24H0z"></path>
+                  <path
+                    fill="currentColor"
+                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                  ></path>
+                </svg>
+              </div>
             </div>
-            <div class=" campoAdicional getPDF">
-                <button id="obtenerPDF" class="pdf">Obtener PDF</button>
-            </div>
-        </form>
+            <span>Enviar</span>
+          </button>
+          
+  
+  
+          <button id="getPDF" class="button" type="button">
+            <span class="button__text">PDF</span>
+            <span class="button__icon"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 35 35" id="bdd05811-e15d-428c-bb53-8661459f9307" data-name="Layer 2" class="svg"><path d="M17.5,22.131a1.249,1.249,0,0,1-1.25-1.25V2.187a1.25,1.25,0,0,1,2.5,0V20.881A1.25,1.25,0,0,1,17.5,22.131Z"></path><path d="M17.5,22.693a3.189,3.189,0,0,1-2.262-.936L8.487,15.006a1.249,1.249,0,0,1,1.767-1.767l6.751,6.751a.7.7,0,0,0,.99,0l6.751-6.751a1.25,1.25,0,0,1,1.768,1.767l-6.752,6.751A3.191,3.191,0,0,1,17.5,22.693Z"></path><path d="M31.436,34.063H3.564A3.318,3.318,0,0,1,.25,30.749V22.011a1.25,1.25,0,0,1,2.5,0v8.738a.815.815,0,0,0,.814.814H31.436a.815.815,0,0,0,.814-.814V22.011a1.25,1.25,0,1,1,2.5,0v8.738A3.318,3.318,0,0,1,31.436,34.063Z"></path></svg></span>
+          </button>
+        </div>
+        
+        
+       </div>
+      
     </main> 
-    <script src="js/prueba.js"></script>
-
 </body>
+<script src="JS/script.js"></script>
 </html>
