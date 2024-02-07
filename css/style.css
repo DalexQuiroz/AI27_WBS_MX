@@ -105,25 +105,36 @@ gap: 1rem;
 .campo__label{
 font-family: var(--fuentePrincipal);
 text-align: center;
-font-size: 1.5rem;
+font-size: 1.7rem;
 }
 .campo__input{
-outline: none;
-height: 3rem;
-border-radius: 1rem;
-border: 1px solid  var(--azul);
+    width: 100%;
+    background: rgb(226, 223, 218);
+    border: none;
+    padding: 15px 20px;
+    border-radius: 10px;
+    margin-top: 15px;
+    box-shadow: #cff0ff00 0px 10px 10px -5px;
+    border-inline: 2px solid transparent;
+    outline: none;
+    transition: 300ms ease-in-out;
 }
-.campo__input:hover{
-    box-shadow: 0px 0px 10px 0px black;
+.campo__input:focus{
+    background-color: white;
+  transform: scale(1.05);
+  box-shadow: 13px 13px 100px #969696,
+             -13px -13px 100px #ffffff
 }
 ::placeholder{
     text-align: center;
+    color: rgb(110, 96, 96);
+    font-size: 1.5rem;
 }
 select{
     height: 3rem;
     border-radius: 1rem;
     outline: none;
-    border: 1px solid green;
+    border: 1px solid black;
 }
 
 .mayus{
@@ -273,7 +284,10 @@ background-color: #000000d2;
         width: 20rem;
     }
 }
-
+#guardar{
+    grid-column: 1/3;
+    width: 10rem;
+}
 
 .campo__boton{
     display: flex;
@@ -334,3 +348,267 @@ gap: 1rem;
     font-size: 1.6rem; /* Puedes ajustar el tamaño según tus preferencias */
     font-weight: 700;
   }
+  body {
+    font-family: Arial, sans-serif;
+  }
+  
+  .container {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 50px;
+  }
+  
+  .left,
+  .right {
+    border: 1px solid #000000;
+    padding: 10px;
+    width: 45%;
+  }
+  
+  .arrows-container {
+    display: grid;
+    place-items: center;
+    grid-template-columns: repeat(2,1fr);
+  }
+  
+  .arrow {
+    font-size: 24px;
+    cursor: pointer;
+    margin: 0 10px;
+    width: 5rem;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  li {
+    margin-bottom: 5px;
+  }
+  .tituloC{
+    text-align: center;
+    font-family:var(--fuentePrincipal) ;
+  }
+  .principal{
+    font-size: 3rem;
+  }
+
+.seleccionarClientes__label{
+    font-size: 2rem;
+    font-family: var(--fuentePrincipal);
+}
+.vehiculos{
+    font-size: 1.5rem;
+    display: flex;
+    padding: 1rem;
+    background-color: white;
+}
+.selected {
+    background-color: blue;
+    color: white; /* Cambia el color del texto a blanco para mayor visibilidad */
+    
+  }
+  #llenaUnidades {
+    display: none;
+}
+
+.button2 {
+    border-radius: 1rem;
+    width: 150px;
+    height: 40px;
+    font-family: inherit;
+    font-size: 20px;
+    background: var(--azul);
+    color: white;
+    padding: 0.7em 1em;
+    padding-left: 0.9em;
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+    border: none;
+    overflow: hidden;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  
+.button2 span {
+    display: block;
+    margin-left: 0.3em;
+    transition: all 0.3s ease-in-out;
+  }
+  
+.button2 svg {
+    display: block;
+    transform-origin: center center;
+    transition: transform 0.3s ease-in-out;
+  }
+  
+.button2:hover .svg-wrapper {
+    animation: fly-1 0.6s ease-in-out infinite alternate;
+  }
+  
+.button2:hover svg {
+    transform: translateX(1.2em) rotate(45deg) scale(1.1);
+  }
+  
+.button2:hover span {
+    transform: translateX(5em);
+  }
+  
+.button2:active {
+    transform: scale(0.95);
+  }
+  
+@keyframes fly-1 {
+    from {
+      transform: translateY(0.1em);
+    }
+  
+    to {
+      transform: translateY(-0.1em);
+    }
+  }
+  
+  .bookmarkBtn {
+    border-radius: 1rem;
+    font-family: inherit;
+    font-size: 13px;
+    display: flex;
+    margin-top: 10px;
+    width: 150px;
+    height: 40px;
+    border: 1px solid rgba(255, 255, 255, 0.349);
+    background-color: rgb(13, 160, 13);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition-duration: 0.3s;
+    overflow: hidden;
+  }
+  
+  .IconContainer {
+    width: 30px;
+    height: 30px;
+    background: linear-gradient(to bottom, rgb(255, 255, 255), rgb(255, 255, 255));
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    z-index: 2;
+    transition-duration: 0.3s;
+  }
+  
+  .icon {
+    border-radius: 1px;
+  }
+  
+  .text {
+    height: 100%;
+    width: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    z-index: 1;
+    transition-duration: 0.3s;
+    font-size: 1.04em;
+  }
+  
+  .bookmarkBtn:hover .IconContainer {
+    width: 90px;
+    transition-duration: 0.3s;
+  }
+  
+  .bookmarkBtn:hover .text {
+    transform: translate(10px);
+    width: 0;
+    font-size: 0;
+    transition-duration: 0.3s;
+  }
+  
+  .bookmarkBtn:active {
+    transform: scale(0.95);
+    transition-duration: 0.3s;
+  }
+  
+  .button {
+    --main-focus: red;
+    --font-color: white;
+    --bg-color-sub: red;
+    --bg-color: red;
+    --main-color: white;
+    position: relative;
+    width: 160px;
+    height: 44px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 4px 4px var(--main-color);
+    background-color: var(--bg-color);
+    border-radius: 10px;
+    padding: 0.7em 1em;
+    margin-top: 10px;
+    overflow: hidden;
+  }
+  
+  .button, .button__icon, .button__text {
+    transition: all 0.3s;
+  }
+  
+  .button .button__text {
+    transform: translateX(22px);
+    color: var(--font-color);
+  
+    font-size: 2rem;
+    text-align: center;
+    margin-left: 1rem;
+  }
+  
+  .button .button__icon {
+    position: absolute;
+    transform: translateX(109px);
+    height: 100%;
+    width: 19px;
+    background-color: var(--bg-color-sub);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 2rem;
+  }
+  
+  .button .svg {
+    width: 20px;
+    fill: var(--main-color);
+  }
+  
+  .button:hover {
+    background: var(--bg-color);
+  }
+  
+  .button:hover .button__text {
+    color: transparent;
+  }
+  
+  .button:hover .button__icon {
+    width: 148px;
+    transform: translateX(0);
+  }
+  
+  .button:active {
+    transform: translate(3px, 3px);
+    box-shadow: 0px 0px var(--main-color);
+  }
+
+.buttons-options{
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin-top: 3rem;
+  gap: 4rem;
+}
